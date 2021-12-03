@@ -6,7 +6,7 @@ describe("Cookbook", () => {
       //Arrange
       const myCookbook = new Cookbook();
       //Act
-      myCookbook.addRecipe("Cookie Recipe", [
+      myCookbook.addRecipe("Cookie", [
         "eggs",
         "flour",
         "chocolate chip",
@@ -15,13 +15,17 @@ describe("Cookbook", () => {
       ]);
       //Assert
       expect(myCookbook.recipes).toEqual({
-        "Cookie Recipe": ["eggs", "flour", "chocolate chip", "yeast", "sugar"],
+        Cookie: ["eggs", "flour", "chocolate chip", "yeast", "sugar"],
       });
     });
   });
 
   describe("Listing recipes", () => {
     test("should allow the recipes to be listed", () => {});
+    const myCookbook = new Cookbook();
+    myCookbook.addRecipe("hotdog", ["meat", "bread"]);
+    const myRecipes = myCookbook.listRecipes();
+    expect(myRecipes).toEqual(["hotdog"]);
   });
 
   describe("Retrieving a recipe", () => {
