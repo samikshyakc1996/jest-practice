@@ -60,5 +60,24 @@ describe("Cookbook", () => {
 
   describe("Deleting a recipe", () => {
     test("should allow a recipe to be deleted", () => {});
+    const myCookbook = new Cookbook();
+    myCookbook.addRecipe("Cookie", [
+      "eggs",
+      "flour",
+      "chocolate chip",
+      "yeast",
+      "sugar",
+    ]);
+    myCookbook.addRecipe("Smoothie", ["milk", "yogurt", "fruits"]);
+    myCookbook.addRecipe("Pizza", ["dough", "sauce", "cheese", "pepperoni"]);
+    console.log(`All recipe: ${myCookbook.listRecipes()}`);
+
+    myCookbook.removeRecipe("Cookie");
+    const remainingRecipe = myCookbook.listRecipes();
+    console.log(
+      `Remaining recipe after removing "Cookie": ${myCookbook.listRecipes()}`
+    );
+
+    expect(remainingRecipe).toEqual(["Smoothie", "Pizza"]);
   });
 });
