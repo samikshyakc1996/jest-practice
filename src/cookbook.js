@@ -9,7 +9,7 @@ class Cookbook {
 
   listRecipes() {
     return Object.keys(this.recipes);
-  };
+  }
 
   getRecipe(name) {
     return this.recipes[name];
@@ -19,5 +19,5 @@ class Cookbook {
     delete this.recipes[name];
   }
 }
-
+//console.log(myCookbook.getRecipe("Smoothie"));
 module.exports = { Cookbook };
