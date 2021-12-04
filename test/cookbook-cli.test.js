@@ -57,5 +57,22 @@ describe("CookbookCli", () => {
 
   describe("Deleting a recipe", () => {
     test("should accept the recipe name and display the correct message", () => {});
+    const myCookbook = new Cookbook();
+    const myCookbookCli = new CookbookCli(myCookbook);
+
+    myCookbookCli.add("hotdog", ["meat", "bread"]);
+    myCookbookCli.add("Pizza", ["dough", "sauce", "cheese", "pepperoni"]);
+    myCookbookCli.add("Sandwich", [
+      "Bread",
+      "Meat",
+      "Mayonnaise",
+      "Onion",
+      "Cucumber",
+    ]);
+    myCookbookCli.remove("Sandwich");
+    const remainingRecipe = myCookbookCli.list();
+    expect(remainingRecipe).toEqual(
+      `You have the following recipes: hotdog,Pizza`
+    );
   });
 });
