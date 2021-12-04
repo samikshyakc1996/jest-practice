@@ -36,6 +36,23 @@ describe("CookbookCli", () => {
 
   describe("Retrieving a recipe", () => {
     test("should display the ingredients required to make the specified recipe", () => {});
+
+    const myCookbook = new Cookbook();
+    const myCookbookCli = new CookbookCli(myCookbook);
+
+    myCookbookCli.add("hotdog", ["meat", "bread"]);
+    myCookbookCli.add("Sandwich", [
+      "Bread",
+      "Meat",
+      "Mayonnaise",
+      "Onion",
+      "Cucumber",
+    ]);
+    const getMyRecipe = myCookbookCli.get("Sandwich");
+    console.log(getMyRecipe);
+    expect(getMyRecipe).toEqual(
+      `The ingredients for Sandwich are: Bread,Meat,Mayonnaise,Onion,Cucumber`
+    );
   });
 
   describe("Deleting a recipe", () => {
