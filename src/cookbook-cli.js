@@ -5,6 +5,7 @@ class CookbookCli {
 
   run(command, ...args) {
     switch (command) {
+<<<<<<< HEAD
       case "list":
         return this.list();
       case "add":
@@ -15,6 +16,13 @@ class CookbookCli {
         return this.remove(...args);
       default:
         return `Whoops, the following command is unsupported: ${command}.`;
+=======
+      case 'list': return this.list();
+      case 'add': return this.add(...args);
+      case 'get': return this.get(...args);
+      case 'remove': return this.remove(...args);
+      default: return `Whoops, the following command is unsupported: ${command}.`;
+>>>>>>> 9090bcc76c01021afd990c2baf95598cd5056a95
     }
   }
 
